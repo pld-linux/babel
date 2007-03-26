@@ -9,7 +9,7 @@ Source0:	http://smog.com/chem/babel/files/%{name}-%{version}.tar.Z
 # Source0-md5:	101a5dc4858ecacac123571db52b272e
 Patch0:		%{name}-gcc3.patch
 URL:		http://smog.com/chem/babel/
-Requires(post,postun):	env-update
+BuildRequires:	rpmbuild(macros) >= 1.316
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define	program_name	babel1
@@ -60,10 +60,10 @@ echo BABEL_DIR=%{_datadir}/%{name} > $RPM_BUILD_ROOT/etc/env.d/BABEL_DIR
 rm -rf $RPM_BUILD_ROOT
 
 %post
-env-update
+%env_update
 
 %postun
-env-update
+%env_update
 
 %files
 %defattr(644,root,root,755)
