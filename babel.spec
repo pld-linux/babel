@@ -9,7 +9,7 @@ Source0:	http://smog.com/chem/babel/files/%{name}-%{version}.tar.Z
 # Source0-md5:	101a5dc4858ecacac123571db52b272e
 Patch0:		%{name}-gcc3.patch
 URL:		http://smog.com/chem/babel/
-Requires(post):	env-update
+Requires(post,postun):	env-update
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define	program_name	babel1
@@ -44,15 +44,16 @@ nieobsługiwane przez nowy program OpenBabel.
 
 %install
 rm -rf $RPM_BUILD_ROOT
-mkdir -p \
+install -d \
     $RPM_BUILD_ROOT%{_bindir} \
     $RPM_BUILD_ROOT%{_datadir}/%{name} \
-    $RPM_BUILD_ROOT/etc/env.d/
+    $RPM_BUILD_ROOT/etc/env.d
 
 %{__make} install \
     DEST=$RPM_BUILD_ROOT%{_bindir} \
     PROGRAM='%{program_name}'
-install -m 0644 *.lis $RPM_BUILD_ROOT%{_datadir}/%{name}
+
+install *.lis $RPM_BUILD_ROOT%{_datadir}/%{name}
 echo BABEL_DIR=%{_datadir}/%{name} > $RPM_BUILD_ROOT/etc/env.d/BABEL_DIR
 
 %clean
