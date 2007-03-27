@@ -1,5 +1,5 @@
 Summary:	Program to interconvert a number of file formats currently used in molecular modeling.
-Summary(pl.UTF-8):	Program do konwersji między wieloma formatami plików używanych w kodelowaniu molekularnym.
+Summary(pl.UTF-8):	Program do konwersji między wieloma formatami plików używanych w modelowaniu molekularnym.
 Name:		babel
 Version:	1.6
 Release:	1
