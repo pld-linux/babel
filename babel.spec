@@ -1,5 +1,5 @@
-Summary:	Program to interconvert a number of file formats currently used in molecular modeling.
-Summary(pl.UTF-8):	Program do konwersji między wieloma formatami plików używanych w modelowaniu molekularnym.
+Summary:	Program to interconvert a number of file formats currently used in molecular modeling
+Summary(pl.UTF-8):	Program do konwersji między wieloma formatami plików używanych w modelowaniu molekularnym
 Name:		babel
 Version:	1.6
 Release:	1
@@ -37,21 +37,21 @@ nieobsługiwane przez nowy program OpenBabel.
 
 %build
 %{__make} \
-    CC='%{__cc}' \
-    CFLAGS='%{rpmcflags}' \
-    LDFLAGS='%{rpmldflags}' \
-    PROGRAM='%{program_name}'
+	CC='%{__cc}' \
+	CFLAGS='%{rpmcflags}' \
+	LDFLAGS='%{rpmldflags}' \
+	PROGRAM='%{program_name}'
 
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d \
-    $RPM_BUILD_ROOT%{_bindir} \
-    $RPM_BUILD_ROOT%{_datadir}/%{name} \
-    $RPM_BUILD_ROOT/etc/env.d
+	$RPM_BUILD_ROOT%{_bindir} \
+	$RPM_BUILD_ROOT%{_datadir}/%{name} \
+	$RPM_BUILD_ROOT/etc/env.d
 
 %{__make} install \
-    DEST=$RPM_BUILD_ROOT%{_bindir} \
-    PROGRAM='%{program_name}'
+	DEST=$RPM_BUILD_ROOT%{_bindir} \
+	PROGRAM='%{program_name}'
 
 install *.lis $RPM_BUILD_ROOT%{_datadir}/%{name}
 echo BABEL_DIR=%{_datadir}/%{name} > $RPM_BUILD_ROOT/etc/env.d/BABEL_DIR
