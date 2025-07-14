@@ -33,7 +33,7 @@ nieobsługiwane przez nowy program OpenBabel.
 
 %prep
 %setup -q
-%patch0
+%patch -P0
 
 %build
 %{__make} \
